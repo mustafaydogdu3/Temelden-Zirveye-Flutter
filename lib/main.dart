@@ -1,4 +1,4 @@
-import 'package:demo/list_view_learn.dart';
+import 'package:demo/navigation_learn.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData.dark(),
-      home: const ListViewLearn(),
+      home: const NavigationLearn(),
     );
   }
 }
