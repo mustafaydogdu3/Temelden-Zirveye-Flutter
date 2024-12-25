@@ -1,4 +1,4 @@
-import 'package:demo/navigation_learn.dart';
+import 'package:demo/page_design.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData.dark(),
-      home: const NavigationLearn(),
+      home: const PageDesign(),
     );
   }
 }
