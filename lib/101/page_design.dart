@@ -1,3 +1,4 @@
+import 'package:demo/101/add_task_page.dart';
 import 'package:flutter/material.dart';
 
 class PageDesign extends StatefulWidget {
@@ -18,40 +19,61 @@ class _PageDesignState extends State<PageDesign> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: _appBar(),
-        backgroundColor: Colors.white,
-        body: _body(),
-        bottomNavigationBar: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: ClipRRect(
-            borderRadius: const BorderRadius.vertical(
-                top: Radius.circular(30.0), bottom: Radius.circular(30.0)),
-            child: BottomNavigationBar(
-                currentIndex: _selectedIndex,
-                onTap: _onItemTapped,
-                selectedItemColor: Colors.green,
-                unselectedItemColor: Colors.white,
-                backgroundColor: Colors.transparent,
-                items: const <BottomNavigationBarItem>[
-                  BottomNavigationBarItem(
-                    icon: Icon(Icons.home),
-                    label: '',
-                  ),
-                  BottomNavigationBarItem(
-                    icon: Icon(Icons.calendar_month),
-                    label: '',
-                  ),
-                  BottomNavigationBarItem(
-                    icon: Icon(Icons.message),
-                    label: '',
-                  ),
-                  BottomNavigationBarItem(
-                    icon: Icon(Icons.person),
-                    label: '',
-                  ),
-                ]),
-          ),
-        ));
+      appBar: _appBar(),
+      backgroundColor: Colors.white,
+      body: _body(),
+      bottomNavigationBar: _bottomNavigationBar(),
+    );
+  }
+
+  Padding _bottomNavigationBar() {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: ClipRRect(
+        borderRadius: const BorderRadius.vertical(
+            top: Radius.circular(30.0), bottom: Radius.circular(30.0)),
+        child: BottomNavigationBar(
+            currentIndex: _selectedIndex,
+            onTap: _onItemTapped,
+            selectedItemColor: Colors.green,
+            unselectedItemColor: Colors.white,
+            backgroundColor: Colors.transparent,
+            items: <BottomNavigationBarItem>[
+              BottomNavigationBarItem(
+                icon: CircleAvatar(
+                  backgroundColor:
+                      _selectedIndex == 0 ? Colors.green : Colors.blue,
+                  child: const Icon(Icons.home),
+                ),
+                label: '',
+              ),
+              BottomNavigationBarItem(
+                icon: CircleAvatar(
+                  backgroundColor:
+                      _selectedIndex == 1 ? Colors.green : Colors.blue,
+                  child: const Icon(Icons.calendar_month),
+                ),
+                label: '',
+              ),
+              BottomNavigationBarItem(
+                icon: CircleAvatar(
+                  backgroundColor:
+                      _selectedIndex == 2 ? Colors.green : Colors.blue,
+                  child: const Icon(Icons.message),
+                ),
+                label: '',
+              ),
+              BottomNavigationBarItem(
+                icon: CircleAvatar(
+                  backgroundColor:
+                      _selectedIndex == 3 ? Colors.green : Colors.blue,
+                  child: const Icon(Icons.person),
+                ),
+                label: '',
+              ),
+            ]),
+      ),
+    );
   }
 
   Center _body() {
@@ -76,7 +98,10 @@ class _PageDesignState extends State<PageDesign> {
           const SizedBox(height: 25),
           ElevatedButton(
               onPressed: () {
-                print("basildi");
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) {
+                  return const AddTaskPage();
+                }));
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.green,
